@@ -1,0 +1,16 @@
+// services/api.js
+import axios from "axios";
+
+const API_URL = "http://localhost:5000/api/enquiry";
+
+// Get all enquiries
+export const getEnquiries = async () => {
+  const response = await axios.get(API_URL);
+  return response.data;
+};
+
+// Add a new enquiry
+export const addEnquiry = async (enquiryData) => {
+  const response = await axios.post(API_URL, enquiryData);
+  return response.data;
+};
