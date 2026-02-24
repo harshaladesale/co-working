@@ -8,7 +8,7 @@ const Reviews = () => {
   // Fetch reviews
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/reviews")
+      .get(`${import.meta.env.VITE_BASE_URL}/api/reviews`)
       .then((res) => setReviews(res.data));
   }, []);
 

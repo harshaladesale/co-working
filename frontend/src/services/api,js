@@ -1,7 +1,7 @@
 // services/api.js
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/enquiry";
+const API_URL = (`${import.meta.env.VITE_BASE_URL}/api/enquiry`)
 
 // Get all enquiries
 export const getEnquiries = async () => {
