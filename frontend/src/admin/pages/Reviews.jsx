@@ -17,7 +17,7 @@ const Reviews = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.post("http://localhost:5000/api/reviews", form);
+    await axios.post(`${import.meta.env.VITE_BASE_URL}/api/reviews`, form);
 
     alert("Review Added");
     setForm({ name: "", rating: "", comment: "" });

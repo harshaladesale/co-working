@@ -7,9 +7,9 @@ const Contacts = () => {
   const [contacts, setContacts] = useState([]);
 
 useEffect(() => {
-  axios.get("http://127.0.0.1:5000/api/enquiry")
+  axios.get(`${import.meta.env.VITE_BASE_URL}/api/enquiry`)
     .then((res) => {
-      console.log("API RESPONSE 👉", res.data); // 👈 ADD THIS
+      console.log("API RESPONSE 👉", res.data); 
       setContacts(res.data);
     })
     .catch((err) => console.log("API ERROR 👉", err));

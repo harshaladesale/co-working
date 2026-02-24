@@ -6,7 +6,7 @@ export default function Contacts() {
   const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/contacts")
+    axios.get(`${import.meta.env.VITE_BASE_URL}/api/contacts`)
       .then(res => setContacts(res.data));
   }, []);
 
