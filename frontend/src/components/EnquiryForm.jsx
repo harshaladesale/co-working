@@ -16,15 +16,13 @@ const EnquiryForm = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/enquiry`, {
+      await fetch(`${import.meta.env.VITE_BASE_URL}/api/enquiry`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
-      const data = await res.json();
       alert("Thank you for your enquiry");
-
       setFormData({ name: "", mobile: "", email: "", message: "" });
     } catch (error) {
       alert("Error submitting form");
@@ -40,7 +38,8 @@ const EnquiryForm = () => {
         <div style={styles.card}>
           <div style={styles.content}>
 
-            <div style={styles.imageBox}>
+            {/* Image (Hidden on Mobile) */}
+            <div className="imageBox" style={styles.imageBox}>
               <img
                 src="https://img.freepik.com/free-vector/contact-us-concept-illustration_114360-2299.jpg"
                 alt="Contact"
@@ -48,6 +47,7 @@ const EnquiryForm = () => {
               />
             </div>
 
+            {/* Form */}
             <div style={styles.formBox}>
               <form onSubmit={handleSubmit}>
 
@@ -106,17 +106,42 @@ const EnquiryForm = () => {
         </div>
 
       </div>
+
+      {/* Responsive + Enhancements */}
+      <style>
+        {`
+          /* Hide image on mobile */
+          @media (max-width: 768px) {
+            .imageBox {
+              display: none;
+            }
+          }
+
+          input:focus, textarea:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79,70,229,0.15);
+          }
+
+          button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+          }
+
+          button:active {
+            transform: translateY(0);
+          }
+        `}
+      </style>
     </section>
   );
 };
 
 export default EnquiryForm;
 
-
 const styles = {
   section: {
-    padding: "80px 20px",
-    background: "linear-gradient(135deg, #f4f6ff, #eef1ff)",
+    padding: "100px 20px",
+    background: "linear-gradient(135deg, #eef2ff, #f8fafc)",
   },
   container: {
     maxWidth: "1100px",
@@ -124,20 +149,21 @@ const styles = {
   },
   title: {
     textAlign: "center",
-    fontSize: "32px",
+    fontSize: "36px",
     fontWeight: "700",
-    marginBottom: "40px",
-    color: "#222",
+    marginBottom: "50px",
+    color: "#111",
   },
   card: {
-    background: "#fff",
-    borderRadius: "20px",
-    boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-    padding: "30px",
+    background: "rgba(255,255,255,0.9)",
+    backdropFilter: "blur(10px)",
+    borderRadius: "24px",
+    boxShadow: "0 25px 60px rgba(0,0,0,0.08)",
+    padding: "40px",
   },
   content: {
     display: "flex",
-    gap: "30px",
+    gap: "40px",
     alignItems: "center",
     flexWrap: "wrap",
   },
@@ -147,7 +173,7 @@ const styles = {
   },
   image: {
     maxWidth: "100%",
-    borderRadius: "16px",
+    borderRadius: "20px",
   },
   formBox: {
     flex: "1",
@@ -156,48 +182,39 @@ const styles = {
     display: "block",
     fontWeight: "600",
     marginBottom: "6px",
-    marginTop: "14px",
+    marginTop: "16px",
     color: "#333",
   },
   input: {
     width: "100%",
-    padding: "12px 14px",
-    borderRadius: "10px",
-    border: "1px solid #ccc",
+    padding: "14px 16px",
+    borderRadius: "12px",
+    border: "1px solid #ddd",
     fontSize: "15px",
     outline: "none",
+    transition: "all 0.3s ease",
   },
   textarea: {
     width: "100%",
-    padding: "12px 14px",
-    borderRadius: "10px",
-    border: "1px solid #ccc",
+    padding: "14px 16px",
+    borderRadius: "12px",
+    border: "1px solid #ddd",
     fontSize: "15px",
     resize: "none",
+    outline: "none",
+    transition: "all 0.3s ease",
   },
   button: {
     width: "100%",
-    marginTop: "20px",
-    padding: "14px",
-    borderRadius: "12px",
+    marginTop: "24px",
+    padding: "16px",
+    borderRadius: "14px",
     border: "none",
-    background: "#111",
+    background: "linear-gradient(90deg, #4f46e5, #6366f1)",
     color: "#fff",
     fontSize: "16px",
     fontWeight: "600",
     cursor: "pointer",
+    transition: "all 0.3s ease",
   },
 };
-
-/* ============ RESPONSIVE FIX ============ */
-if (typeof document !== "undefined") {
-  const style = document.createElement("style");
-  style.innerHTML = `
-    @media (max-width: 768px) {
-      #contact form {
-        width: 100%;
-      }
-    }
-  `;
-  document.head.appendChild(style);
-}

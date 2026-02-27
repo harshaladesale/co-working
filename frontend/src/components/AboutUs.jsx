@@ -57,80 +57,49 @@ const AboutUs = () => {
   return (
     <section
       id="about"
-      style={{
-        padding: "4rem 1.5rem",
-        backgroundColor: "#fff",
-      }}
+      className="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-purple-50"
     >
-      <Title>About Us</Title>
-      <Subtitle>
-        A new-age coworking space fostering creativity, collaboration, and growth.
-      </Subtitle>
+      {/* Background Glow */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-indigo-300 opacity-20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-300 opacity-20 blur-3xl rounded-full"></div>
 
-      <div className="about-grid">
-        {data.map((item, index) => (
-          <Card key={index} title={item.title} text={item.text} />
-        ))}
+      <div className="max-w-7xl mx-auto relative z-10 text-center">
+
+        {/* Section Header */}
+        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          About <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            Us
+          </span>
+        </h2>
+
+        <p className="text-gray-600 max-w-2xl mx-auto mb-16 text-lg">
+          A new-age coworking space fostering creativity, collaboration,
+          and business growth in a premium professional environment.
+        </p>
+
+        {/* Cards Grid */}
+        <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
+
+          {data.map((item, index) => (
+            <div
+              key={index}
+              className="group bg-white/70 backdrop-blur-xl border border-white/40 
+                       rounded-2xl p-8 shadow-lg 
+                       hover:shadow-2xl hover:-translate-y-2
+                       transition-all duration-500"
+            >
+              <h3 className="text-xl font-semibold mb-4 text-indigo-600 group-hover:text-purple-600 transition">
+                {item.title}
+              </h3>
+
+              <p className="text-gray-600 leading-relaxed">
+                {item.text}
+              </p>
+            </div>
+          ))}
+
+        </div>
       </div>
-
-      <style>
-        {`
-          .about-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-          }
-
-          .about-card {
-            background: #f9f9f9;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-          }
-
-          .about-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-          }
-
-          .about-card h2 {
-            margin-bottom: 0.75rem;
-            font-size: 1.4rem;
-            color: #0d6efd;
-          }
-
-          .about-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #333;
-          }
-
-          /* Tablet */
-          @media (max-width: 992px) {
-            .about-grid {
-              grid-template-columns: repeat(2, 1fr);
-            }
-          }
-
-          /* Mobile */
-          @media (max-width: 576px) {
-            .about-grid {
-              grid-template-columns: 1fr;
-            }
-
-            .about-card {
-              padding: 1.5rem;
-            }
-
-            h1 {
-              font-size: 2rem;
-            }
-          }
-        `}
-      </style>
     </section>
   );
 };

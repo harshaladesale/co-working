@@ -1,111 +1,71 @@
 import React from "react";
+import {
+  FaWifi,
+  FaBroom,
+  FaBolt,
+  FaBuilding,
+  FaDesktop,
+  FaChalkboardTeacher,
+  FaUsers,
+  FaVideo,
+  FaTint,
+} from "react-icons/fa";
 
 const amenities = [
-  {
-    name: "WiFi",
-    icon: "https://cdn-icons-png.flaticon.com/512/93/93158.png",
-  },
-  {
-    name: "Housekeeping",
-    icon: "https://cdn-icons-png.flaticon.com/512/1046/1046857.png",
-  },
-  {
-    name: "Parking",
-    icon: "https://cdn-icons-png.flaticon.com/512/75/75905.png",
-  },
-  {
-    name: "Inverter Power Support",
-    icon: "https://cdn-icons-png.flaticon.com/512/1046/1046874.png",
-  },
-  {
-    name: "Lift",
-    icon: "https://cdn-icons-png.flaticon.com/512/201/201623.png",
-  },
-  {
-    name: "Comfortable Workstation",
-    icon: "https://cdn-icons-png.flaticon.com/512/2920/2920349.png",
-  },
-  {
-    name: "Conference Room",
-    icon: "https://cdn-icons-png.flaticon.com/512/1995/1995574.png",
-  },
-  {
-    name: "Group Discussion",
-    icon: "https://cdn-icons-png.flaticon.com/512/1995/1995568.png",
-  },
-  {
-    name: "CCTV Camera",
-    icon: "https://cdn-icons-png.flaticon.com/512/1046/1046871.png",
-  },
-  {
-    name: "RO Water",
-    icon: "https://cdn-icons-png.flaticon.com/512/728/728093.png",
-  },
+  { name: "WiFi", icon: FaWifi, color: "from-pink-500 to-rose-500" },
+  { name: "Housekeeping", icon: FaBroom, color: "from-green-400 to-emerald-500" },
+  { name: "Inverter Power Support", icon: FaBolt, color: "from-yellow-400 to-orange-500" },
+  { name: "Lift", icon: FaBuilding, color: "from-indigo-500 to-blue-600" },
+  { name: "Comfortable Workstation", icon: FaDesktop, color: "from-cyan-400 to-blue-500" },
+  { name: "Conference Room", icon: FaChalkboardTeacher, color: "from-purple-500 to-violet-600" },
+  { name: "Group Discussion", icon: FaUsers, color: "from-teal-400 to-green-500" },
+  { name: "CCTV Camera", icon: FaVideo, color: "from-red-500 to-pink-500" },
+  { name: "RO Water", icon: FaTint, color: "from-sky-400 to-blue-600" },
 ];
 
 const Amenities = () => {
   return (
-    <section id="amenities" style={styles.section}>
-      <h2 style={styles.title}>Amenities</h2>
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50" id="amenities">
+      
+      {/* Title */}
+      <div className="text-center mb-16 px-4">
+        <h2 className="text-4xl font-bold text-gray-800">
+          Our Amenities
+        </h2>
+        <p className="text-gray-600 mt-3 text-lg">
+          Modern facilities designed for comfort and productivity
+        </p>
+      </div>
 
-      <div style={styles.grid}>
-        {amenities.map((item, index) => (
-          <div key={index} style={styles.card}>
-            <img
-              src={item.icon}
-              alt={item.name}
-              style={styles.icon}
-              loading="lazy"
-            />
-            <span style={styles.text}>{item.name}</span>
-          </div>
-        ))}
+      {/* Grid */}
+      <div className="max-w-7xl mx-auto px-6 grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+        {amenities.map((item, index) => {
+          const Icon = item.icon;
+
+          return (
+            <div
+              key={index}
+              className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 text-center"
+            >
+              {/* Colorful Gradient Icon Circle */}
+              <div
+                className={`mx-auto mb-5 flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r ${item.color} text-white text-3xl shadow-md group-hover:scale-110 transition-transform duration-300`}
+              >
+                <Icon />
+              </div>
+
+              {/* Text */}
+              <h3 className="text-lg font-semibold text-gray-700 group-hover:text-gray-900 transition">
+                {item.name}
+              </h3>
+            </div>
+          );
+        })}
+
       </div>
     </section>
   );
 };
 
 export default Amenities;
-
-
-const styles = {
-  section: {
-    padding: "80px 20px",
-    background: "#ffffff",
-    textAlign: "center",
-  },
-  title: {
-    fontSize: "36px",
-    fontWeight: "700",
-    marginBottom: "50px",
-    color: "#222",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
-    gap: "25px",
-    maxWidth: "1100px",
-    margin: "0 auto",
-  },
-  card: {
-    background: "#f9f9ff",
-    padding: "25px 15px",
-    borderRadius: "16px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "12px",
-    boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
-    transition: "0.3s ease",
-  },
-  icon: {
-    width: "48px",
-    height: "48px",
-    objectFit: "contain",
-  },
-  text: {
-    fontSize: "14px",
-    fontWeight: "600",
-    color: "#333",
-  },
-};

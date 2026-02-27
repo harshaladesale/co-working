@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "./Plans.css";
 
 const plans = [
   {
-    name: "Dedicated Cabin (Full Access, Co-Working Space)",
-    price: "₹3000",
-    dayPass: "₹3000",
-    nightPass: "₹4000",
+    name: "Dedicated Desk (Full Access, Co-Working Space)",
+    monthPass: "₹3000",
+    monthNightPass: "₹4000",
+    bg: "from-pink-500 to-rose-500",
+    btn: "from-pink-600 to-rose-600",
     features: [
       "24/7 Access",
       "High speed Wi-Fi",
@@ -20,9 +20,10 @@ const plans = [
   },
   {
     name: "Dedicated Cabin (Full Access, Co-Working Space)",
-    price: "₹10000",
-    dayPass: "₹10000",
-    nightPass: "₹12000",
+    monthPass: "₹10000",
+    monthNightPass: "₹12000",
+    bg: "from-indigo-500 to-blue-600",
+    btn: "from-indigo-600 to-blue-700",
     features: [
       "24/7 Access",
       "High speed Wi-Fi",
@@ -34,9 +35,10 @@ const plans = [
   },
   {
     name: "Day Pass (Flexible Access – Co-Working Space)",
-    price: "₹400 / Day",
     dayPass: "₹400",
     nightPass: "₹600",
+    bg: "from-emerald-500 to-teal-500",
+    btn: "from-emerald-600 to-teal-600",
     features: [
       "Access during working hours",
       "High-speed Wi-Fi",
@@ -55,40 +57,76 @@ const Plans = () => {
   }, []);
 
   return (
-    <section id="plans" className="plans-section">
-      <div className="container">
-        <h2 className="section-title">Select Your Plan</h2>
+    <section className="py-20 bg-gradient-to-br from-yellow-50 via-pink-50 to-purple-50" id="plans">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">
+          Select Your Plan
+        </h2>
 
-        <div className="plans-grid">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan, i) => (
             <div
-              className="plan-card"
               key={i}
-              data-aos="fade-up"
+              data-aos="zoom-in"
               data-aos-delay={i * 200}
+              className={`rounded-3xl p-[3px] bg-gradient-to-r ${plan.bg} shadow-xl hover:scale-105 transition duration-500`}
             >
-              <h5 className="plan-name">{plan.name}</h5>
+              <div className="bg-white rounded-3xl p-8 text-center h-full">
 
-              <div className="plan-price-section">
-                <div className="extra-passes">
-                <p className="pass">
-                  <strong>Day Pass:</strong> {plan.dayPass}
-                </p>
-                <p className="pass">
-                  <strong>Night Pass:</strong> {plan.nightPass}
-                </p>
-              </div>
-              </div>
-              <ul className="plan-features">
-                {plan.features.map((feature, idx) => (
-                  <li key={idx}>
-                    <i className="bi bi-check-circle-fill"></i>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+                <h3 className="text-lg font-semibold text-gray-800 mb-6">
+                  {plan.name}
+                </h3>
 
-              <button className="btn plan-btn" href="./EnquiryForm.jsx/#contact">Enquire Now</button>
+                <div className="mb-6 space-y-2 text-gray-700">
+
+                  {/* If Month Plan */}
+                  {plan.monthPass && (
+                    <>
+                      <p>
+                        <span className="font-semibold">Month Pass:</span>{" "}
+                        {plan.monthPass}
+                      </p>
+                      <p>
+                        <span className="font-semibold">Month Night Pass:</span>{" "}
+                        {plan.monthNightPass}
+                      </p>
+                    </>
+                  )}
+
+                  {/* If Day Plan */}
+                  {plan.dayPass && (
+                    <>
+                      <p>
+                        <span className="font-semibold">Day Pass:</span>{" "}
+                        {plan.dayPass}
+                      </p>
+                      <p>
+                        <span className="font-semibold">Night Pass:</span>{" "}
+                        {plan.nightPass}
+                      </p>
+                    </>
+                  )}
+                </div>
+
+                <ul className="text-left space-y-2 mb-8">
+                  {plan.features.map((feature, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-2 text-gray-600 text-sm"
+                    >
+                      <span className="text-green-500 font-bold">✔</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="#contact"
+                  className={`inline-block px-6 py-3 rounded-full bg-gradient-to-r ${plan.btn} text-white font-semibold shadow-lg hover:shadow-2xl transition`}
+                >
+                  Enquire Now
+                </a>
+              </div>
             </div>
           ))}
         </div>

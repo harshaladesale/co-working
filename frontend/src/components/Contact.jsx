@@ -11,7 +11,7 @@ const Contact = () => {
               <span style={styles.icon}>📍</span>
               <strong>Address:</strong><br />
               Virar, Maharashtra <br />
-              223, 3rd floor, Thakur Arcade above Dr. Kharkar Clinic,  
+              Gaurisha co-working 223, 3rd floor, Thakur Arcade above Dr. Kharkar Clinic,  
               near Virar Railway Station, Virar West.
             </p>
 

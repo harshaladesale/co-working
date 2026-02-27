@@ -24,12 +24,13 @@ const Hero = () => {
     justifyContent: "center",
     flexDirection: "column",
     textAlign: "center",
-    backgroundImage: "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.15)), url('https://theturkeytraveler.com/wp-content/uploads/2023/06/Kolektif-House-coworking-space.jpg')",
-    backgroundSize: "cover",
+    backgroundImage:
+      "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.15)), url('/images/image.png')", backgroundSize: "cover",
     backgroundPosition: "center",
     color: "white",
     position: "relative",
     padding: "0 1rem"
+
   };
 
   return (
@@ -42,9 +43,10 @@ const Hero = () => {
       <style>
         {`
           .hero-heading {
-            font-size: 3rem;
-            font-weight: 700;
-            margin: 0.5rem 0;
+          font-size: 3rem;
+          font-weight: 700;
+          margin-top: 80px;
+          margin-bottom: 0.5rem;
           }
 
           .night-badge {
@@ -68,19 +70,26 @@ const Hero = () => {
           }
 
           .hero-button {
-            padding: 0.8rem 2rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            background-color: #0d6efd;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
+          padding: 0.9rem 2.2rem;
+          font-size: 1.1rem;
+          font-weight: 600;
+          border-radius: 10px;
+          border: 1.5px solid rgba(255, 255, 255, 0.4);
+          background: rgba(0, 0, 0, 0.25);
+          color: #fff;
+          cursor: pointer;
+          transition: all 0.3s ease;
           }
 
           .hero-button:hover {
-            background-color: #0056b3;
+          background: #0d6efd;
+          border-color: #0d6efd;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(13, 110, 253, 0.35);
+          }
+
+         .hero-button:active {
+          transform: translateY(0);
           }
 
           /* Glow animation */

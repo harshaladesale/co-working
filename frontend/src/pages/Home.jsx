@@ -9,7 +9,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import AboutUs from "../components/AboutUs";
 import Reviews from "../components/Reviews"; 
-
+import Workspace from "../pages/Workspace";
 const Home = () => {
   return (
     <>
@@ -20,7 +20,7 @@ const Home = () => {
       <Plans />
       <Amenities />
       <Gallery />
-      
+      <Workspace />
       <EnquiryForm />
       <Contact />
       <Reviews />

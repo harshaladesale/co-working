@@ -1,16 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import logo from "../assets/images/logo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [active, setActive] = useState("Home");
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const menuItems = [
     { name: "Home", href: "#" },
@@ -22,121 +15,91 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        backgroundColor: "#fff",
-        boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-        zIndex: 999,
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0.5rem 1rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
+    <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
         {/* Logo */}
-        <a
-  href="#"
-  className="flex items-center gap-3 no-underline"
->
-  {/* Logo */}
-  <img
-    src={logo}
-    alt="Logo"
-    className="h-14 w-14 object-contain"
-  />
-
-  {/* Text */}
-  <div>
-    {/* Brand Name */}
-    <div className="relative text-xl font-bold text-gray-900">
-      Gaurisha
-
-      {/* Underline Accent (Always Visible) */}
-      <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-blue-600"></span>
-    </div>
-
-    {/* Tagline */}
-    <div className="mt-1 text-[11px] tracking-widest uppercase text-blue-600">
-      Co-Working Space
-    </div>
-  </div>
-</a>
-
+        <a href="#" className="flex items-center gap-3">
+          <img
+            src={logo}
+            alt="Logo"
+            className="h-12 md:h-16 w-auto object-contain"
+          />
+          <div>
+            <h1 className="text-xl md:text-2xl font-bold text-gray-900">
+              Gaurisha
+            </h1>
+            <p className="text-xs tracking-widest uppercase text-gray-500">
+              Co-Working Space
+            </p>
+          </div>
+        </a>
 
         {/* Desktop Menu */}
-        {!isMobile && (
-          <ul style={{ display: "flex", gap: "1.5rem", listStyle: "none" }}>
-            {menuItems.map((item) => (
-              <li key={item.name}>
-                <a
-                  href={item.href}
-                  onClick={() => setActive(item.name)}
-                  style={{
-                    textDecoration: "none",
-                    fontWeight: 500,
-                    color: active === item.name ? "#0d6efd" : "#000",
-                    borderBottom:
-                      active === item.name ? "2px solid #0d6efd" : "none",
-                    paddingBottom: "4px",
-                  }}
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {/* Mobile Menu */}
-        {isMobile && (
-          <div>
-            <button onClick={() => setOpen(!open)}>☰</button>
-
-            {open && (
-              <ul
-                style={{
-                  position: "absolute",
-                  right: 10,
-                  top: "100%",
-                  background: "#fff",
-                  listStyle: "none",
-                  padding: "1rem",
-                  boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
-                }}
+        <ul className="hidden md:flex items-center gap-10">
+          {menuItems.map((item) => (
+            <li key={item.name} className="relative group">
+              <a
+                href={item.href}
+                onClick={() => setActive(item.name)}
+                className={`font-medium transition duration-300 ${
+                  active === item.name
+                    ? "text-blue-600"
+                    : "text-gray-700 group-hover:text-blue-600"
+                }`}
               >
-                {menuItems.map((item) => (
-                  <li key={item.name}>
-                    <a
-                      href={item.href}
-                      onClick={() => {
-                        setActive(item.name);
-                        setOpen(false);
-                      }}
-                      style={{
-                        display: "block",
-                        padding: "6px 0",
-                        color: active === item.name ? "#0d6efd" : "#000",
-                        fontWeight: 500,
-                      }}
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        )}
+                {item.name}
+              </a>
+
+              {/* Underline animation */}
+              <span
+                className={`absolute left-0 -bottom-2 h-[2px] bg-blue-600 transition-all duration-300 ${
+                  active === item.name
+                    ? "w-full"
+                    : "w-0 group-hover:w-full"
+                }`}
+              ></span>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Button */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden flex flex-col gap-1"
+        >
+          <span className="w-6 h-0.5 bg-black"></span>
+          <span className="w-6 h-0.5 bg-black"></span>
+          <span className="w-6 h-0.5 bg-black"></span>
+        </button>
+      </div>
+
+      {/* Mobile Slide Menu */}
+      <div
+        className={`md:hidden bg-white shadow-lg transition-all duration-300 ${
+          open ? "max-h-96 py-6" : "max-h-0 overflow-hidden"
+        }`}
+      >
+        <ul className="flex flex-col items-center gap-6">
+          {menuItems.map((item) => (
+            <li key={item.name}>
+              <a
+                href={item.href}
+                onClick={() => {
+                  setActive(item.name);
+                  setOpen(false);
+                }}
+                className={`font-medium text-lg ${
+                  active === item.name
+                    ? "text-blue-600"
+                    : "text-gray-700"
+                }`}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );

@@ -10,7 +10,19 @@ const Footer = () => {
       }}
     >
       <p style={{ margin: 0 }}>
-        © 2026 Gaurisha Co-Working Space | All Rights Reserved by Local Vocalize Technology
+        © 2026 Gaurisha Co-Working Space | Designed & Developed by{" "}
+        <a
+          href="https://localvocalizetechnology.tech/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: "#00d4ff",
+            textDecoration: "none",
+            fontWeight: "600",
+          }}
+        >
+          Localvocalize
+        </a>
       </p>
     </footer>
   );

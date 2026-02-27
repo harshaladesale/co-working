@@ -15,7 +15,6 @@ useEffect(() => {
     .catch((err) => console.log("API ERROR 👉", err));
 }, []);
 
-
   return (
     <div className="flex">
       <Sidebar />
