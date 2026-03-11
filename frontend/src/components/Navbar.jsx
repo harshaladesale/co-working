@@ -22,7 +22,7 @@ const Navbar = () => {
         <a href="#" className="flex items-center gap-3">
           <img
             src={logo}
-            alt="Logo"
+            alt="Gaurisha Coworking Space Logo"           
             className="h-12 md:h-16 w-auto object-contain"
           />
           <div>
@@ -65,6 +65,7 @@ const Navbar = () => {
 
         {/* Mobile Button */}
         <button
+          aria-label="Toggle Menu"
           onClick={() => setOpen(!open)}
           className="md:hidden flex flex-col gap-1"
         >

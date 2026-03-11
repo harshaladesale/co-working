@@ -29,12 +29,12 @@ const Amenities = () => {
       
       {/* Title */}
       <div className="text-center mb-16 px-4">
-        <h2 className="text-4xl font-bold text-gray-800">
+        <h1 className="text-3xl font-bold text-gray-800">
           Our Amenities
-        </h2>
-        <p className="text-gray-600 mt-3 text-lg">
+        </h1>
+        <h2 className="text-gray-600 mt-3 text-lg">
           Modern facilities designed for comfort and productivity
-        </p>
+        </h2>
       </div>
 
       {/* Grid */}

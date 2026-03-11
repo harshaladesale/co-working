@@ -3,7 +3,9 @@ import React from "react";
 const Heading = ({ children }) => (
   <h1 className="hero-heading">{children}</h1>
 );
-
+const SubHeading = ({ children }) => (
+  <h2 className="hero-subheading">{children}</h2>
+);
 const NightBadge = ({ children }) => (
   <div className="night-badge">{children}</div>
 );
@@ -36,6 +38,7 @@ const Hero = () => {
   return (
     <section style={heroStyle}>
       <Heading>ProDesk Co-Working</Heading>
+      <SubHeading>Premium Co-Working Space in Virar</SubHeading>
       <NightBadge>🌙 Night Working Available</NightBadge>
       <Paragraph>Comfortable • Secure • Affordable Living</Paragraph>
       <Button onClick={() => console.log("Book clicked")}>Book Your Stay</Button>

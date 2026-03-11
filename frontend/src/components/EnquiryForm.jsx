@@ -34,6 +34,7 @@ const EnquiryForm = () => {
       <div style={styles.container}>
 
         <h2 style={styles.title}>Contact Us</h2>
+        
 
         <div style={styles.card}>
           <div style={styles.content}>
@@ -45,6 +46,7 @@ const EnquiryForm = () => {
                 alt="Contact"
                 style={styles.image}
               />
+              <h1 class="contact-title">Contact Gaurisha Coworking Space in Virar</h1>
             </div>
 
             {/* Form */}
@@ -129,6 +131,17 @@ const EnquiryForm = () => {
 
           button:active {
             transform: translateY(0);
+          }
+          .contact-title{
+            font-size:20px;
+            font-weight:600;
+            text-align:center;
+            color:#333;
+            margin-bottom:30px;
+            letter-spacing:0.5px;
+            display:inline-block;
+            padding-bottom:8px;
+            border-bottom:3px solid #4f46e5;
           }
         `}
       </style>

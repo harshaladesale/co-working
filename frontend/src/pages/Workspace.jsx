@@ -16,13 +16,13 @@ const FeatureSection = () => {
 
         {/* Right Info */}
         <div className="flex-1">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">
             🚶‍♂️ Walking Zone
-          </h2>
-          <p className="text-gray-700 mb-6 text-lg">
+          </h1>
+          <h2 className="text-gray-700 mb-6 ">
             Take a quick refresh break! Our coworking space includes a dedicated walking zone
             to help you recharge, boost creativity, and maintain a healthy workflow.
-          </p>
+          </h2>
 
           <ul className="space-y-3">
             <li className="flex items-center gap-3">

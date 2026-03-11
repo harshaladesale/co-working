@@ -31,7 +31,7 @@ const Reviews = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[350px]">
-      <h3 className="text-xl font-bold mt-4 mb-2">Customer Reviews</h3>
+      <h2 className="text-xl font-bold mt-4 mb-2">Customer Reviews</h2>
 
       {/* Review Card */}
       <div className="w-[400px] p-6 bg-white shadow-xl rounded-lg text-center transition-all duration-500">

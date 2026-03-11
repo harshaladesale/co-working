@@ -20,17 +20,23 @@ const Gallery = () => {
   };
   const prevImage = (e) => {
     e.stopPropagation();
-    setCurrentIndex((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
-    );
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50" id="gallery">
+    <section
+      className="py-24 bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50"
+      id="gallery"
+    >
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-5xl font-bold text-center mb-16 text-gray-800">
-          Our Gallery
-        </h2>
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-bold text-gray-800">Our Gallery</h1>
+
+          <h2 className="text-lg text-gray-500 mt-3 max-w-2xl mx-auto">
+            Explore our modern coworking space, workstations, meeting rooms, and
+            vibrant workspace environment in Virar.
+          </h2>
+        </div>
 
         {/* Masonry Responsive Grid */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
@@ -63,7 +69,6 @@ const Gallery = () => {
           onClick={closeModal}
         >
           <div className="relative max-w-5xl w-full flex items-center justify-center">
-
             <img
               src={images[currentIndex]}
               alt="Preview"
@@ -93,7 +98,6 @@ const Gallery = () => {
             >
               ›
             </button>
-
           </div>
         </div>
       )}

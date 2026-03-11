@@ -60,8 +60,14 @@ const Plans = () => {
     <section className="py-20 bg-gradient-to-br from-yellow-50 via-pink-50 to-purple-50" id="plans">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">
-          Select Your Plan
+          Coworking Space Plans 
         </h2>
+        <p className="text-center text-gray-600 max-w-2xl mx-auto mb-16">
+          Choose the best coworking membership at Gaurisha Coworking Space in
+          Virar. We offer flexible day passes, dedicated desks and private
+          cabins with high-speed WiFi, secure access and professional workspace
+          amenities.
+        </p>
 
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan, i) => (

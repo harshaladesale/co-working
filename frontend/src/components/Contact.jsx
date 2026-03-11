@@ -5,15 +5,15 @@ const Contact = () => {
         <div style={styles.grid}>
           
           <div style={styles.infoCard}>
-            <h3 style={styles.heading}>Get in Touch</h3>
+            <h1 style={styles.heading}>Get in Touch</h1>
 
-            <p style={styles.text}>
+            <h2 style={styles.text}>
               <span style={styles.icon}>📍</span>
               <strong>Address:</strong><br />
               Virar, Maharashtra <br />
               Gaurisha co-working 223, 3rd floor, Thakur Arcade above Dr. Kharkar Clinic,  
               near Virar Railway Station, Virar West.
-            </p>
+            </h2>
 
             <p style={styles.text}>
               <span style={styles.icon}>📞</span>

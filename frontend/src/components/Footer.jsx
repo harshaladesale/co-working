@@ -9,7 +9,7 @@ const Footer = () => {
         fontSize: "0.95rem",
       }}
     >
-      <p style={{ margin: 0 }}>
+      <h1 style={{ margin: 0 }}>
         © 2026 Gaurisha Co-Working Space | Designed & Developed by{" "}
         <a
           href="https://localvocalizetechnology.tech/"
@@ -23,7 +23,7 @@ const Footer = () => {
         >
           Localvocalize
         </a>
-      </p>
+      </h1>
     </footer>
   );
 };

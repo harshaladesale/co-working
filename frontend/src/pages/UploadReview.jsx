@@ -2,7 +2,7 @@
 export default function UploadReview() {
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Upload Review</h2>
+      <h1 className="text-xl font-bold mb-4">Upload Review</h1>
 
       <form className="bg-white p-4 shadow rounded">
         <input
